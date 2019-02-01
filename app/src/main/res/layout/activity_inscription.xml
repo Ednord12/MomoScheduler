@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Inscription"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:gravity="center_horizontal"
+
+
+>
+    <EditText
+            android:layout_width="300dp"
+            android:backgroundTint="@color/colorWhite"
+            android:layout_height="45dp"
+            android:paddingLeft="10dp"
+            android:hint="Nom"
+            android:background="@drawable/btn_form"
+            android:layout_marginTop="@dimen/margin"/>
+    <EditText
+            android:layout_width="300dp"
+            android:backgroundTint="@color/colorWhite"
+            android:layout_height="45dp"
+            android:paddingLeft="10dp"
+            android:hint="Prénom"
+            android:background="@drawable/btn_form"
+
+            android:layout_marginTop="@dimen/margin"/>
+
+    <EditText
+            android:layout_width="300dp"
+            android:backgroundTint="@color/colorWhite"
+            android:layout_height="45dp"
+            android:paddingLeft="10dp"
+            android:hint="Téléphone"
+            android:background="@drawable/btn_form"
+            android:layout_marginTop="@dimen/margin"/>
+    <EditText
+            android:layout_width="300dp"
+            android:backgroundTint="@color/colorWhite"
+            android:layout_height="45dp"
+            android:paddingLeft="10dp"
+            android:hint="e-mail"
+            android:background="@drawable/btn_form"
+            android:layout_marginTop="@dimen/margin"/>
+
+    <TextView android:layout_width="250dp"
+              android:layout_margin="@dimen/margin"
+              android:layout_height="5dp"
+              android:background="@drawable/line"
+
+    />
+    <EditText
+            android:layout_width="300dp"
+            android:backgroundTint="@color/colorWhite"
+            android:layout_height="45dp"
+            android:paddingLeft="10dp"
+            android:hint="Mot de passe"
+
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/btn_form"
+            android:layout_marginTop="@dimen/margin"/>
+    <EditText
+            android:layout_width="300dp"
+            android:backgroundTint="@color/colorWhite"
+            android:layout_height="45dp"
+            android:paddingLeft="10dp"
+            android:hint="Mot de passe"
+            android:background="@drawable/btn_form"
+            android:layout_marginTop="@dimen/margin"/>
+
+    <Button android:layout_width="150dp"
+            android:layout_marginTop="15dp"
+            android:text="Creer le compte"
+            android:background="@drawable/btn_form2"
+            android:layout_height="wrap_content"/>
+
+
+</LinearLayout>
