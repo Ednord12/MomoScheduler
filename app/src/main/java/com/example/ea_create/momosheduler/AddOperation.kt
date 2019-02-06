@@ -32,13 +32,14 @@ class AddOperation : AppCompatActivity() {
         ) {
 
 
-            val sdf = SimpleDateFormat("yyyy/MM/dd", Locale.US)
+            val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.US)
             var date = sdf.format(Date())
             operation = Operation(
                 0, Global.operator, spi_operation.selectedItem.toString(),
-                txt_add_op_id_cart.text.toString(), txt_add_op_sold.text.toString(), txt_add_op_ref.text.toString()
-                , date
+                txt_add_op_id_cart.text.toString(),txt_add_op_client.text.toString(), txt_add_op_sold.text.toString(),
+                txt_add_op_ref.text.toString(), date
             )
+
 
             val retro = RetrofitInit.retrofit().create(RetrofitService::class.java)
             var r=retro.createOperation(operation)
@@ -46,13 +47,15 @@ class AddOperation : AppCompatActivity() {
                 override fun onFailure(call: Call<Operation>, t: Throwable) {
 
 
+                    t.printStackTrace()
                 }
 
                 override fun onResponse(call: Call<Operation>, response: Response<Operation>) {
 
-                    showDialog(
-                        "Nouvelle opération enregistrée avec succes"
+                    showDialog1(
+                        "Nouvelle opération enregistrée avec succès"
                     )
+
                 }
             })
 
@@ -65,9 +68,13 @@ class AddOperation : AppCompatActivity() {
         }
     }
 
-    fun showDialog(text: String) {
+    fun showDialog1(text: String) {
 
         AlertDialog.Builder(this)
-            .setMessage(text).show()
+            .setMessage(text)
+            .setOnDismissListener {
+                finish()
+            }
+            .show()
     }
 }

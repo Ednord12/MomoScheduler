@@ -38,6 +38,7 @@ class Operation(
     var operator: String = "",
     var actionMode: String = "",
     var customer: String = "",
+    var customerIDcard: String = "",
     var solde: String = "",
     var referencecode: String = "",
     var datetime: String=""

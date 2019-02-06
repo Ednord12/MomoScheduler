@@ -32,6 +32,7 @@ class SplashScreen : AppCompatActivity() {
     private fun CheckUser() {
 
         if (!Global.myConnectedUser.connected) {
+            finish()
 
             startActivity(Intent(applicationContext,Connection::class.java))
 
@@ -40,6 +41,7 @@ class SplashScreen : AppCompatActivity() {
         } else {
 
 
+            finish()
             startActivity(Intent(applicationContext,Accueil::class.java))
 
         }
