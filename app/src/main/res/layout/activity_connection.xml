@@ -9,23 +9,47 @@
         android:layout_height="match_parent"
         tools:context=".Connection">
 
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="45dp"
+                  android:gravity="center"
+                  android:background="@color/colorPrimary">
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="45dp"
+                  android:textAlignment="center"
+                  android:text="Veuillez vous connecter"
+                  android:textFontWeight="2dp"
+                  android:textSize="@dimen/txt_big"
+                  android:textStyle="bold|italic"/>
 
 
+    </LinearLayout>
 
+    <TextView android:layout_width="wrap_content"
+                android:id="@+id/tv_login_incorrect"
+              android:layout_height="wrap_content"
+              android:visibility="invisible"
+              android:layout_marginTop="@dimen/margin"
+              android:textColor="#ff0000"
+              android:text="Login ou mot de passe incorrect."
 
+              android:textStyle="bold|italic"/>
     <EditText
             android:layout_width="300dp"
             android:backgroundTint="@color/colorWhite"
             android:layout_height="45dp"
             android:paddingLeft="10dp"
+
+            android:id="@+id/txt_login"
             android:hint="Téléphone"
+
             android:background="@drawable/btn_form"
-            android:layout_marginTop="@dimen/margin"/>
+            android:layout_marginTop="58dp"/>
 
 
     <TextView android:layout_width="250dp"
               android:layout_margin="@dimen/margin"
               android:layout_height="5dp"
+
               android:background="@drawable/line"
 
     />
@@ -35,17 +59,18 @@
             android:layout_height="45dp"
             android:paddingLeft="10dp"
             android:hint="Mot de passe"
+            android:id="@+id/txt_password"
             android:backgroundTint="@color/colorWhite"
             android:textColor="@color/colorWhite"
             android:background="@drawable/btn_form"
-            android:layout_marginTop="@dimen/margin"/>
+             android:inputType="textPassword"/>
 
     <TextView android:layout_width="wrap_content"
               android:id="@+id/txt_creer_compte"
               android:layout_height="wrap_content"
               android:layout_marginTop="@dimen/margin"
               android:textColor="@color/colorAccent"
-              android:text="Vous n'avez pas encore un compte ?"
+              android:text="Vous n'avez pas encore un compte? Cliquez ici."
 
     />
 
@@ -53,6 +78,7 @@
     <Button android:layout_width="150dp"
             android:layout_marginTop="15dp"
             android:text="Connecter"
+            android:id="@+id/btn_connection"
             android:background="@drawable/btn_form2"
             android:layout_height="wrap_content"/>
 

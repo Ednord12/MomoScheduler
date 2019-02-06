@@ -10,6 +10,22 @@
         tools:showIn="@layout/app_bar_accueil"
         tools:context=".Accueil"
         android:gravity="center">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="45dp"
+    android:gravity="center"
+                  android:background="@color/colorWhite"
+    >
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+        android:textSize="@dimen/txt_big"
+                  android:textColor="@color/colorPrimary"
+                  android:layout_gravity="center"
+                  android:gravity="center"
+                  android:text="Opérateur:"
+        />
+
+
+    </LinearLayout>
 
     <Button android:layout_width="@dimen/btn_width"
             android:layout_height="@dimen/btn_heigth"
