@@ -35,6 +35,7 @@ class ActionMode(
 
 class Operation(
     var Id: Int = 0,
+    var agent:String="",
     var operator: String = "",
     var actionMode: String = "",
     var customer: String = "",

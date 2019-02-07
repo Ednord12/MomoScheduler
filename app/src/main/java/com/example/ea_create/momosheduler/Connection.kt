@@ -50,33 +50,34 @@ class Connection : AppCompatActivity() {
 
                 println("*****************************************")
 
-
-                if (response.isSuccessful and (response.body()?.isNotEmpty()!!)) {
+                response.let {
+                    if (response.isSuccessful) {
 
 //                    println(response.body()?.get(0)?.name)
-                    /*************/
-                    tv_login_incorrect.visibility = View.INVISIBLE
+                        /*************/
+                        tv_login_incorrect.visibility = View.INVISIBLE
 
 
-                    /********************/
-                    Global.myConnectedUser = response.body()?.get(0)!!
-                    Global.myConnectedUser.connected = true
+                        /********************/
+                        Global.myConnectedUser = response.body()?.get(0)!!
+                        Global.myConnectedUser.connected = true
 
 
-                    if (!Global.myConnectedUser.activate) {
-                        Toast.makeText(
-                            applicationContext, "Ce compte n'est pas activé, clickez sur le lien qui vous" +
-                                    " a été envoyer par email", Toast.LENGTH_SHORT
-                        ).show()
+                        if (!Global.myConnectedUser.activate) {
+                            Toast.makeText(
+                                applicationContext, "Ce compte n'est pas activé, clickez sur le lien qui vous" +
+                                        " a été envoyer par email", Toast.LENGTH_SHORT
+                            ).show()
+                        }
+
+                        if (Global.myConnectedUser.connected) {
+                            finish()
+                            startActivity(Intent(applicationContext, Accueil::class.java))
+                        }
+                    } else {
+
+                        tv_login_incorrect.visibility = View.VISIBLE
                     }
-
-                    if (Global.myConnectedUser.connected) {
-                        finish()
-                        startActivity(Intent(applicationContext, Accueil::class.java))
-                    }
-                } else {
-
-                    tv_login_incorrect.visibility = View.VISIBLE
                 }
 
 
@@ -88,7 +89,8 @@ class Connection : AppCompatActivity() {
                 Log.e("Retrofit", t.stackTrace.toString())
                 showDialog(
                     "Nous rencontrons des difficultés à nous connecté au serveur.\n Verifiez votre " +
-                            "connexion ")
+                            "connexion "
+                )
 
 
             }
@@ -98,7 +100,20 @@ class Connection : AppCompatActivity() {
 
     }
 
-    fun showDialog(text:String){
+
+
+
+
+
+
+
+
+
+
+
+
+
+    fun showDialog(text: String) {
 
         AlertDialog.Builder(this)
             .setMessage(text).show()

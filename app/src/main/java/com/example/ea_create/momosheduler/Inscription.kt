@@ -74,16 +74,21 @@ class Inscription : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<UserCompte>, response: Response<UserCompte>) {
-                if (response.isSuccessful and (response.body() != null)) {
-                    /* Toast.makeText(context,"Votre compte a été créé avec succes.\n Un email de validation à éte" +
-                             "envoyé à votre addresse email.Allez consulter",Toast.LENGTH_LONG).show()*/
+
+                response.let {
 
 
-                    showDialog(
-                        "Votre compte a été créé avec succes.\n Un email de validation à éte" +
-                                "envoyé à votre addresse email.Allez consulter"
-                    )
-                    startActivity(Intent(applicationContext, Connection::class.java))
+                    if (response.isSuccessful) {
+                        /* Toast.makeText(context,"Votre compte a été créé avec succes.\n Un email de validation à éte" +
+                                 "envoyé à votre addresse email.Allez consulter",Toast.LENGTH_LONG).show()*/
+
+
+                        showDialog(
+                            "Votre compte a été créé avec succes.\n Un email de validation à éte" +
+                                    "envoyé à votre addresse email.Allez consulter"
+                        )
+                        startActivity(Intent(applicationContext, Connection::class.java))
+                    }
                 }
             }
 

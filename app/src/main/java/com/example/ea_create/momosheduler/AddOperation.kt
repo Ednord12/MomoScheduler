@@ -35,12 +35,12 @@ class AddOperation : AppCompatActivity() {
             val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.US)
             var date = sdf.format(Date())
             operation = Operation(
-                0, Global.operator, spi_operation.selectedItem.toString(), txt_add_op_client.text.toString(),
+                0, Global.operator,"${Global.myConnectedUser.name} ${Global.myConnectedUser.surname}",
+                spi_operation.selectedItem.toString(), txt_add_op_client.text.toString(),
                 txt_add_op_id_cart.text.toString() ,txt_add_op_sold.text.toString(),txt_add_op_phone.text.toString(),
                 txt_add_op_ref.text.toString(), date
             )
 
-Operation()
             val retro = RetrofitInit.retrofit().create(RetrofitService::class.java)
             var r=retro.createOperation(operation)
             r.enqueue(object :Callback<Operation>{

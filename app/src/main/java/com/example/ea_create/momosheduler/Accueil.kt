@@ -1,17 +1,12 @@
 package com.example.ea_create.momosheduler
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.ea_create.momosheduler.Models.UserCompte
-import com.example.ea_create.momosheduler.R.id.drawer_layout
 
-import kotlinx.android.synthetic.main.activity_accueil.*
-import kotlinx.android.synthetic.main.app_bar_accueil.*
 import kotlinx.android.synthetic.main.content_accueil.*
 
 class Accueil : AppCompatActivity() {
@@ -39,7 +34,7 @@ class Accueil : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.accueil, menu)
+        menuInflater.inflate(R.menu.decn, menu)
 
         return true
     }
@@ -50,7 +45,7 @@ class Accueil : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
 
         when (item?.itemId) {
-            R.id.action_settings -> {
+            R.id.deconn -> {
                 android.support.v7.app.AlertDialog.Builder(this)
                     .setMessage("Voulez-vous deconnecter ce compte ?")
                     .setPositiveButton(
@@ -68,17 +63,7 @@ class Accueil : AppCompatActivity() {
                     .create()
                     .show()
             }
-            R.id.statistique -> {
-                //finish()
-                startActivity(Intent(applicationContext, Statistiques::class.java))
 
-            }
-
-            R.id.myhome -> {
-
-                finish()
-                startActivity(Intent(applicationContext, Accueil::class.java))
-            }
 
         }
 

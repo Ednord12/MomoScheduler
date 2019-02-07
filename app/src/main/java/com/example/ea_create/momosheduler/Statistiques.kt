@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.widget.TextView
 import com.example.ea_create.momosheduler.Adapter.Operations_Adapter
 import com.example.ea_create.momosheduler.Models.Operation
@@ -31,12 +32,23 @@ class Statistiques : AppCompatActivity() {
 
         }
 
-        btn_stat_Ok.setOnClickListener { l->MakeRequest() }
+        btn_stat_Ok.setOnClickListener { l -> getDate() }
     }
 
     override fun onResume() {
         super.onResume()
         //MakeRequest()
+    }
+
+    fun getDate() {
+        var startd = txt_stat_startdate.text.trim().toString()
+        var endd = txt_stat_enddate.text.trim().toString()
+        if (startd.contains('-') and endd.contains('-')) {
+            MakeRequest(startd, endd)
+        } else {
+            Snackbar.make(relativeLayout,"La période entrée ne respect pas le format, rééssayez",Snackbar.LENGTH_LONG)
+
+        }
     }
 
     private fun OpenDialog(operation: Operation) {
@@ -68,10 +80,10 @@ class Statistiques : AppCompatActivity() {
 
     }
 
-    private fun MakeRequest() {
+    private fun MakeRequest(st_d: String, end_d: String) {
 
         val retro = RetrofitInit.retrofit().create(RetrofitService::class.java)
-        var r = retro.getOperationbyOperatorBetweenDate(Global.operator,"2019-02-06","2019-02-07")
+        var r = retro.getOperationbyOperatorBetweenDate(Global.operator, st_d, end_d)
         r.enqueue(object : retrofit2.Callback<ArrayList<Operation>> {
 
             override fun onFailure(call: Call<ArrayList<Operation>>, t: Throwable) {
@@ -89,14 +101,14 @@ class Statistiques : AppCompatActivity() {
                 response.let {
 
 
-                if (response.isSuccessful ) {
-                    operation = response.body()!!
+                    if (response.isSuccessful) {
+                        operation = response.body()!!
 
 
-                    var adapter = Operations_Adapter(applicationContext, operation)
-                    ltv_statistiques.adapter = adapter
+                        var adapter = Operations_Adapter(applicationContext, operation)
+                        ltv_statistiques.adapter = adapter
 
-                }
+                    }
                 }
 
             }

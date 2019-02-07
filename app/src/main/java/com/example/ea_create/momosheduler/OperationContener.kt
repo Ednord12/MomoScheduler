@@ -76,9 +76,11 @@ class OperationContener : AppCompatActivity() {
         var dg_tel = dialog.findViewById<TextView>(R.id.txt_dg_tel)
         var dg_tr_ref = dialog.findViewById<TextView>(R.id.txt_dg_tr_reference)
         var dg_id_ref = dialog.findViewById<TextView>(R.id.txt_dg_id_reference)
+        var dg_agent = dialog.findViewById<TextView>(R.id.txt_dg_tr_agent)
 
 
         dg_id_ref.text = "ID Pièce: ${operation.customerIDcard}"
+        dg_agent.text = "Agent: ${operation.agent}"
         dg_client.text = "Client: ${operation.customer}"
         dg_operation.text = "Opération: ${operation.actionMode}"
         dg_solde.text = "Montant: ${operation.solde}"
