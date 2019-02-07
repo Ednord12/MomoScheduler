@@ -33,6 +33,7 @@ class Connection : AppCompatActivity() {
         }
 
         txt_creer_compte.setOnClickListener { l ->
+            finish()
             startActivity(Intent(applicationContext, Inscription::class.java))
         }
 
@@ -70,6 +71,7 @@ class Connection : AppCompatActivity() {
                     }
 
                     if (Global.myConnectedUser.connected) {
+                        finish()
                         startActivity(Intent(applicationContext, Accueil::class.java))
                     }
                 } else {

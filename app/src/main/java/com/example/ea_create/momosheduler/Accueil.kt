@@ -21,7 +21,6 @@ class Accueil : AppCompatActivity() {
         setContentView(R.layout.app_bar_accueil)
 
 
-
         //btn click listener
 
         btn_MTN.setOnClickListener { l -> OpenOperationsPage("MTN") }
@@ -29,10 +28,9 @@ class Accueil : AppCompatActivity() {
     }
 
 
-
     fun OpenOperationsPage(operator: String) {
 
-        Global.operator=operator
+        Global.operator = operator
         var intent = Intent(this, OperationContener::class.java)
         intent.putExtra("operator", operator)
         startActivity(intent)
@@ -42,6 +40,7 @@ class Accueil : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.accueil, menu)
+
         return true
     }
 
@@ -49,9 +48,10 @@ class Accueil : AppCompatActivity() {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        when (item.itemId) {
+
+        when (item?.itemId) {
             R.id.action_settings -> {
-                 AlertDialog.Builder(this)
+                android.support.v7.app.AlertDialog.Builder(this)
                     .setMessage("Voulez-vous deconnecter ce compte ?")
                     .setPositiveButton(
                         "Oui"
@@ -60,18 +60,28 @@ class Accueil : AppCompatActivity() {
                         run {
 
                             Global.myConnectedUser = UserCompte()
-                            finish()
+                  //          finish()
                             startActivity(Intent(applicationContext, Connection::class.java))
 
                         }
-                    }.setNegativeButton("Non") { dialog, which -> var  v=1 }
-                     .create()
-                     .show()
-
+                    }.setNegativeButton("Non") { dialog, which -> var v = 1 }
+                    .create()
+                    .show()
+            }
+            R.id.statistique -> {
+                //finish()
+                startActivity(Intent(applicationContext, Statistiques::class.java))
 
             }
-            else -> return super.onOptionsItemSelected(item)
+
+            R.id.myhome -> {
+
+                finish()
+                startActivity(Intent(applicationContext, Accueil::class.java))
+            }
+
         }
+
         return true
     }
 

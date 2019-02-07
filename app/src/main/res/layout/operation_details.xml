@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/colorWhite"
+              android:gravity="center"
+              android:layout_margin="2dp"
+              android:padding="5dp"
+              android:orientation="vertical"
+
+>
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="5dp"
+              android:textColor="@color/colorPrimary"
+              android:text="Client"
+              android:id="@+id/txt_dg_client"
+              android:textSize="@dimen/txt_medium"
+              android:textAlignment="viewStart" android:textStyle="bold"/>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="5dp"
+              android:id="@+id/txt_dg_mintant"
+              android:textColor="@color/colorPrimary"
+              android:text="Montant"
+              android:textSize="@dimen/txt_medium"
+              android:textAlignment="viewStart" android:textStyle="bold"/>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="5dp"
+              android:textColor="@color/colorPrimary"
+              android:id="@+id/txt_dg_tel"
+              android:text="Tél :"
+              android:textSize="@dimen/txt_medium"
+              android:textAlignment="viewStart" android:textStyle="bold"/>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="5dp"
+              android:id="@+id/txt_dg_opertor"
+              android:textColor="@color/colorPrimary"
+              android:text="Operateur"
+              android:textSize="@dimen/txt_medium"
+              android:textAlignment="viewStart" android:textStyle="bold"/>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/txt_dg_operation"
+              android:layout_margin="5dp"
+              android:textColor="@color/colorPrimary"
+              android:text="Operation"
+              android:textSize="@dimen/txt_medium"
+              android:textAlignment="viewStart" android:textStyle="bold"/>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="5dp"
+              android:id="@+id/txt_dg_id_reference"
+              android:textColor="@color/colorPrimary"
+              android:text="Reference Id"
+              android:textSize="@dimen/txt_medium"
+              android:textAlignment="viewStart" android:textStyle="bold"/>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="5dp"
+              android:id="@+id/txt_dg_tr_reference"
+              android:textColor="@color/colorPrimary"
+              android:text="Code de réference"
+              android:textSize="@dimen/txt_medium"
+              android:textAlignment="viewStart" android:textStyle="bold"/>
+
+</LinearLayout>

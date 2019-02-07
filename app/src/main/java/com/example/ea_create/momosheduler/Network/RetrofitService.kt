@@ -15,6 +15,12 @@ interface RetrofitService {
     fun gettodayOperationbyOperator(@Path("operator") operator:String):Call<ArrayList<Operation>>
 
 
+    @GET("/getoperationsbyoperatorandbetweendatetime/{operator}/{startdate}/{enddate}")
+    fun getOperationbyOperatorBetweenDate(@Path("operator") operator:String,
+                                          @Path("startdate") startdate:String,
+                                          @Path("enddate") enddate:String):Call<ArrayList<Operation>>
+
+
     @POST("/createusercomptes")
     fun createUserComptes(@Body newUserCompte: UserCompte): Call<UserCompte>
 

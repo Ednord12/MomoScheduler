@@ -40,6 +40,7 @@ class Operation(
     var customer: String = "",
     var customerIDcard: String = "",
     var solde: String = "",
+    var phone: String = "",
     var referencecode: String = "",
     var datetime: String=""
 
