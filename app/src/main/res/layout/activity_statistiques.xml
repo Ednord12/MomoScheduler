@@ -51,12 +51,14 @@
                           android:layout_height="40dp"
                           android:id="@+id/txt_stat_startdate"
                           android:layout_marginStart="5dp"
-                          android:background="@color/colorWhite"
+                          android:background="#a0ffffff"
+
                 />
 
                 <TextView android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:text="Au"
+
                           android:layout_margin="5dp"
                           android:textStyle="bold"/>
 
@@ -64,7 +66,7 @@
                           android:id="@+id/txt_stat_enddate"
                           android:layout_height="40dp"
                           android:layout_marginStart="5dp"
-                          android:background="@color/colorWhite"
+                          android:background="#a0ffffff"
                 />
 
 
@@ -75,12 +77,32 @@
                       android:text="ex:2019-02-06"
             />
         </LinearLayout>
-        <Button android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/search"
-                android:backgroundTint="#c89c1b1b"
-                android:text=""
-                android:id="@+id/btn_stat_Ok"/>
+        <LinearLayout android:layout_width="wrap_content"
+                      android:layout_height="wrap_content">
+
+
+            <Button android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/search"
+                    android:backgroundTint="#c89c1b1b"
+                    android:text=""
+                    android:id="@+id/btn_stat_Ok"/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="-"
+                      android:textSize="@dimen/txt_big"
+                      android:layout_margin="5dp"
+                      android:textStyle="bold"/>
+
+            <ImageButton android:layout_width="50dp"
+                         android:layout_height="50dp"
+                         android:src="@drawable/pdf"
+                         android:padding="2dp"
+                         android:background="#00ffffff"
+                         android:id="@+id/btn_stat_Ok_pdf"
+                         android:scaleType="centerCrop"/>
+
+        </LinearLayout>
 
         <ListView android:layout_width="match_parent"
                   android:layout_margin="5dp"
@@ -92,12 +114,6 @@
     </LinearLayout>
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="55dp">
-
-        <TextView android:layout_width="match_parent"
-                  android:layout_height="35dp"
-                  android:textSize="@dimen/txt_medium"
-                  android:text="hhhhhhhhhhhh"
-        />
 
 
     </LinearLayout>

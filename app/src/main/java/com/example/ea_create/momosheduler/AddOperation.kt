@@ -35,7 +35,7 @@ class AddOperation : AppCompatActivity() {
             val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.US)
             var date = sdf.format(Date())
             operation = Operation(
-                0, Global.operator,"${Global.myConnectedUser.name} ${Global.myConnectedUser.surname}",
+                0, "${Global.myConnectedUser.name} ${Global.myConnectedUser.surname}", Global.operator,
                 spi_operation.selectedItem.toString(), txt_add_op_client.text.toString(),
                 txt_add_op_id_cart.text.toString() ,txt_add_op_sold.text.toString(),txt_add_op_phone.text.toString(),
                 txt_add_op_ref.text.toString(), date

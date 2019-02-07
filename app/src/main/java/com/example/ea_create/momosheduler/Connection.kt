@@ -83,6 +83,8 @@ class Connection : AppCompatActivity() {
 
             }
 
+
+
             override fun onFailure(call: Call<ArrayList<UserCompte>>, t: Throwable) {
 
                 t.printStackTrace()
@@ -99,16 +101,6 @@ class Connection : AppCompatActivity() {
         })
 
     }
-
-
-
-
-
-
-
-
-
-
 
 
 

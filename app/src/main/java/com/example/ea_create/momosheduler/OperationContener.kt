@@ -41,10 +41,10 @@ class OperationContener : AppCompatActivity() {
 
         // set an adapter
 
-        /*  //var items = arrayListOf<String>("Item1", "Item1", "Item1", "Item1", "Item1", "Item1", "Item1", "Item1")
+          //var items = arrayListOf<String>("Item1", "Item1", "Item1", "Item1", "Item1", "Item1", "Item1", "Item1")
           var items = arrayListOf<String>()
           var adapter = ArrayAdapter(applicationContext, android.R.layout.simple_list_item_1, items)
-          //ltv_operation.adapter = adapter*/
+          ltv_operation.adapter = adapter
 
 
         fab.setOnClickListener { view ->
@@ -52,12 +52,15 @@ class OperationContener : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
         ltv_operation.setOnItemClickListener { parent, view, position, id ->
 
 
             OpenDialog(operation[position])
 
         }
+
+
 
 
     }
@@ -167,7 +170,10 @@ class OperationContener : AppCompatActivity() {
 
             override fun onResponse(call: Call<ArrayList<Operation>>, response: Response<ArrayList<Operation>>) {
 
+
+
                 response.let {
+
 
 
                     if (response.isSuccessful ) {

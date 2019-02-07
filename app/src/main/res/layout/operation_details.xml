@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="250dp"
+              android:layout_width="match_parent"
               android:layout_gravity="center"
               android:layout_height="match_parent"
               android:background="@color/colorWhite"
@@ -10,17 +10,29 @@
               android:orientation="vertical"
 
 >
+    <LinearLayout android:layout_width="360dp"
+                  android:layout_height="1dp">
+
+    </LinearLayout>
     <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
+              android:layout_height="50dp"
+              android:background="@drawable/btn_form2"
+              android:padding="8dp"
+              android:backgroundTint="@color/colorWhite"
               android:layout_margin="5dp"
               android:textColor="@color/colorPrimary"
               android:text="Client"
+
               android:id="@+id/txt_dg_client"
               android:textSize="@dimen/txt_medium"
-              android:textAlignment="viewStart" android:textStyle="bold"/>
+              android:textAlignment="viewStart"
+              android:textStyle="bold"/>
 
     <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
+              android:layout_height="50dp"
+              android:background="@drawable/btn_form2"
+              android:padding="8dp"
+              android:backgroundTint="@color/colorWhite"
               android:layout_margin="5dp"
               android:id="@+id/txt_dg_mintant"
               android:textColor="@color/colorPrimary"
@@ -29,7 +41,10 @@
               android:textAlignment="viewStart" android:textStyle="bold"/>
 
     <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
+              android:layout_height="50dp"
+              android:background="@drawable/btn_form2"
+              android:padding="8dp"
+              android:backgroundTint="@color/colorWhite"
               android:layout_margin="5dp"
               android:textColor="@color/colorPrimary"
               android:id="@+id/txt_dg_tel"
@@ -38,7 +53,10 @@
               android:textAlignment="viewStart" android:textStyle="bold"/>
 
     <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
+              android:layout_height="50dp"
+              android:background="@drawable/btn_form2"
+              android:padding="8dp"
+              android:backgroundTint="@color/colorWhite"
               android:layout_margin="5dp"
               android:id="@+id/txt_dg_opertor"
               android:textColor="@color/colorPrimary"
@@ -47,16 +65,23 @@
               android:textAlignment="viewStart" android:textStyle="bold"/>
 
     <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
+              android:layout_height="50dp"
+              android:background="@drawable/btn_form2"
+              android:padding="8dp"
+              android:backgroundTint="@color/colorWhite"
               android:id="@+id/txt_dg_operation"
               android:layout_margin="5dp"
               android:textColor="@color/colorPrimary"
               android:text="Operation"
               android:textSize="@dimen/txt_medium"
-              android:textAlignment="viewStart" android:textStyle="bold"/>
+              android:textAlignment="viewStart"
+              android:textStyle="bold"/>
 
     <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
+              android:layout_height="50dp"
+              android:background="@drawable/btn_form2"
+              android:padding="8dp"
+              android:backgroundTint="@color/colorWhite"
               android:layout_margin="5dp"
               android:id="@+id/txt_dg_id_reference"
               android:textColor="@color/colorPrimary"
@@ -65,7 +90,10 @@
               android:textAlignment="viewStart" android:textStyle="bold"/>
 
     <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
+              android:layout_height="50dp"
+              android:background="@drawable/btn_form2"
+              android:padding="8dp"
+              android:backgroundTint="@color/colorWhite"
               android:layout_margin="5dp"
               android:id="@+id/txt_dg_tr_reference"
               android:textColor="@color/colorPrimary"
@@ -75,7 +103,10 @@
               android:textStyle="bold"/>
 
     <TextView android:layout_width="match_parent"
-              android:layout_height="wrap_content"
+              android:layout_height="50dp"
+              android:background="@drawable/btn_form2"
+              android:padding="8dp"
+              android:backgroundTint="@color/colorWhite"
               android:layout_margin="5dp"
               android:id="@+id/txt_dg_tr_agent"
               android:textColor="@color/colorPrimary"
