@@ -106,7 +106,7 @@ class Connection : AppCompatActivity() {
 
     override fun onBackPressed() {
         android.support.v7.app.AlertDialog.Builder(this)
-            .setMessage("Voulez-vous deconnecter ce compte ?")
+            .setMessage("Voulez-vous partir?")
             .setPositiveButton(
                 "Oui"
 
