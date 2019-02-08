@@ -130,7 +130,7 @@ class OperationContener : AppCompatActivity() {
 
             R.id.statistique -> {
 
-                finish()
+                //finish()
                 startActivity(Intent(applicationContext, Statistiques::class.java))
 
             }
@@ -174,9 +174,7 @@ class OperationContener : AppCompatActivity() {
 
                 response.let {
 
-
-
-                    if (response.isSuccessful ) {
+                    if (response.isSuccessful and (response.body() != null) and (response.body()!!.size>0)) {
                         operation = response.body()!!
 
 

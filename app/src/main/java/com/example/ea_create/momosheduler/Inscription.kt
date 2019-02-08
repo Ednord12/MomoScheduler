@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.service.autofill.Validators.and
 import android.view.View
 import android.widget.Toast
 import com.example.ea_create.momosheduler.Models.UserCompte
@@ -78,16 +79,28 @@ class Inscription : AppCompatActivity() {
                 response.let {
 
 
-                    if (response.isSuccessful) {
+                    if (response.isSuccessful and (response.body() != null) ) {
+
+                        var userc:UserCompte=response.body()!!
                         /* Toast.makeText(context,"Votre compte a été créé avec succes.\n Un email de validation à éte" +
                                  "envoyé à votre addresse email.Allez consulter",Toast.LENGTH_LONG).show()*/
 
+                        if((userc.phone =="") and (userc.email=="")){
 
-                        showDialog(
-                            "Votre compte a été créé avec succes.\n Un email de validation à éte" +
-                                    "envoyé à votre addresse email.Allez consulter"
-                        )
-                        startActivity(Intent(applicationContext, Connection::class.java))
+                            showDialog("Ce numéro de téléphone existe déja")
+
+                        }else{
+
+                            showDialog(
+                                "Votre compte a été créé avec succes.\n Un email de validation à éte" +
+                                        "envoyé à votre addresse email.Allez consulter"
+                            )
+
+                            finish()
+                            startActivity(Intent(applicationContext, Connection::class.java))
+                        }
+
+
                     }
                 }
             }

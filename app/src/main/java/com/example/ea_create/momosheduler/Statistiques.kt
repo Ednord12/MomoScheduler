@@ -8,6 +8,7 @@ import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.os.Handler
 import android.support.design.widget.Snackbar
 import android.widget.TextView
 import android.widget.Toast
@@ -30,12 +31,14 @@ class Statistiques : AppCompatActivity() {
 
     private val STORAGE_CODE: Int = 100;
     var operation: ArrayList<Operation> = arrayListOf()
+
+    var handler=Handler()
+    lateinit var runnable:Runnable
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_statistiques)
 
-
-
+        /************************************/
         ltv_statistiques.setOnItemClickListener { parent, view, position, id ->
 
 
@@ -68,6 +71,15 @@ class Statistiques : AppCompatActivity() {
                 savePdf()
             }
         }
+        /******************************************/
+
+        runnable= Runnable {
+
+            btn_stat_Ok.isActivated = (txt_stat_startdate.text.isNotBlank() and txt_stat_enddate.text.isNotBlank())
+            btn_stat_Ok_pdf.isActivated = operation.size>0
+
+        }
+        handler.post(runnable).apply {  }
 
     }
 
@@ -137,7 +149,7 @@ class Statistiques : AppCompatActivity() {
                 response.let {
 
 
-                    if (response.isSuccessful) {
+                    if (response.isSuccessful  and (response.body()!!.size>0) and (response.body()!!.size>0)) {
                         operation = response.body()!!
 
 
@@ -161,7 +173,7 @@ class Statistiques : AppCompatActivity() {
         //create object of Document class
         val mDoc = Document()
         //pdf file name
-        val mFileName = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis())
+        val mFileName = "MomoScheduler Raport du "+SimpleDateFormat("yyyy-MM-dd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis())
         //pdf file path
         val mFilePath = Environment.getExternalStorageDirectory().toString() + "/" + mFileName +".pdf"
         try {
@@ -170,14 +182,20 @@ class Statistiques : AppCompatActivity() {
 
             //open the document for writing
             mDoc.open()
-            var mText = "\r\rRecette du jour\n"
-            //get text from EditText i.e. textEt
-            for (txt:Operation in operation){
+            var mText = "\r\rOpérations Mobile money du ${txt_stat_startdate.text} au ${txt_stat_enddate.text} sur " +
+                    "${Global.operator}\n\n"
 
-                mText+="\n ${txt.toString()}"
+            var total:Int=0
+            //get text from EditText i.e. textEt
+            for (op:Operation in operation){
+
+                total += (op.solde).toInt()
+                mText+="\n Client: ${op.customer} | Numéro: ${op.phone} | Pièce Id: ${op.customerIDcard} | Montant: ${op.solde} |" +
+                        " Réference: ${op.referencecode} | Agent: ${op.agent}"
             }
 
 
+            mText+="\n\n Total = $total"
             //add author of the document (metadata)
             mDoc.addAuthor("Ednord")
 
@@ -215,7 +233,7 @@ class Statistiques : AppCompatActivity() {
 
     /********************************************/
 
-    fun showDialog(text: String) {
+    fun showDialog(text:String) {
 
         AlertDialog.Builder(this)
             .setMessage(text).show()

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.opengl.Visibility
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.service.autofill.Validators.and
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -33,7 +34,7 @@ class Connection : AppCompatActivity() {
         }
 
         txt_creer_compte.setOnClickListener { l ->
-            finish()
+
             startActivity(Intent(applicationContext, Inscription::class.java))
         }
 
@@ -51,26 +52,27 @@ class Connection : AppCompatActivity() {
                 println("*****************************************")
 
                 response.let {
-                    if (response.isSuccessful) {
+                    if (response.isSuccessful and (response.body()!= null) and (response.body()!!.size>0)) {
 
-//                    println(response.body()?.get(0)?.name)
+//
                         /*************/
                         tv_login_incorrect.visibility = View.INVISIBLE
 
 
                         /********************/
-                        Global.myConnectedUser = response.body()?.get(0)!!
+
+                        println(response.body()?.get(0))
+                        Global.myConnectedUser = response.body()!![0]
                         Global.myConnectedUser.connected = true
 
 
+
                         if (!Global.myConnectedUser.activate) {
-                            Toast.makeText(
-                                applicationContext, "Ce compte n'est pas activé, clickez sur le lien qui vous" +
-                                        " a été envoyer par email", Toast.LENGTH_SHORT
-                            ).show()
+                            showDialog("Ce compte n'est pas activé, clickez sur le lien qui vous" +
+                            " a été envoyer par email")
                         }
 
-                        if (Global.myConnectedUser.connected) {
+                        if (Global.myConnectedUser.connected and Global.myConnectedUser.activate) {
                             finish()
                             startActivity(Intent(applicationContext, Accueil::class.java))
                         }
@@ -102,7 +104,25 @@ class Connection : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+        android.support.v7.app.AlertDialog.Builder(this)
+            .setMessage("Voulez-vous deconnecter ce compte ?")
+            .setPositiveButton(
+                "Oui"
 
+            ) { _, _ ->
+                run {
+
+                    Global.myConnectedUser = UserCompte()
+                    //          finish()
+                    super.onBackPressed()
+
+                }
+            }.setNegativeButton("Non") { dialog, which -> var v = 1 }
+            .create()
+            .show()
+
+    }
 
 
     fun showDialog(text: String) {

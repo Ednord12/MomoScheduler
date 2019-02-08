@@ -71,4 +71,25 @@ class Accueil : AppCompatActivity() {
     }
 
 
+    override fun onBackPressed() {
+
+        android.support.v7.app.AlertDialog.Builder(this)
+            .setMessage("Voulez-vous deconnecter ce compte ?")
+            .setPositiveButton(
+                "Oui"
+
+            ) { _, _ ->
+                run {
+
+                    Global.myConnectedUser = UserCompte()
+                    //          finish()
+                   // startActivity(Intent(applicationContext, Connection::class.java))
+                    super.onBackPressed()
+
+                }
+            }.setNegativeButton("Non") { dialog, which -> var v = 1 }
+            .create()
+            .show()
+
+    }
 }
